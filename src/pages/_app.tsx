@@ -4,27 +4,21 @@ import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import { useState, useEffect } from "react";
 export default function App({ Component, pageProps }: AppProps) {
-
   // state and dark mode controls
   const [dark, setDark] = useState(false);
 
   useEffect(() => {
-    const storageTheme = localStorage.getItem("dark");
-    if (storageTheme === "true") {
-      setDark(true);
-      document.documentElement.classList.add("dark");
-    } else {
-      setDark(false);
-      document.documentElement.classList.remove("dark");
-    }
+    const theme = localStorage.getItem("theme");
+    if (theme === "dark") setDark(true);
   }, []);
-
+  
   useEffect(() => {
-    localStorage.setItem("dark", dark.toString());
     if (dark) {
       document.documentElement.classList.add("dark");
+      localStorage.setItem("theme", "dark");
     } else {
       document.documentElement.classList.remove("dark");
+      localStorage.setItem("theme", "light");
     }
   }, [dark]);
 

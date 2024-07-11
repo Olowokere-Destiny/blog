@@ -50,7 +50,7 @@ export default function Home({ postings }: { postings: PostsArray }) {
           All articles
         </h1>
 
-        <div className="">
+        <div className="md:grid md:grid-cols-2 md:px-4 mb-8">
           {postings && postings.length > 0 ? (
             postings.map((post: Posts) => (
               <Post
