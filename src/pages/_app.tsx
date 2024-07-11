@@ -4,10 +4,10 @@ import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import { useState, useEffect } from "react";
 export default function App({ Component, pageProps }: AppProps) {
+
   // state and dark mode controls
-  // const lsTheme = localStorage.getItem("dark")
-  const [dark, setDark] = useState(true);
-  
+  const [dark, setDark] = useState(false);
+
   useEffect(() => {
     const storageTheme = localStorage.getItem("dark");
     if (storageTheme === "true") {
